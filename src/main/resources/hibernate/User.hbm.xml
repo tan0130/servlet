@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="ssh.entity.User"> <!-- 每一个class都对应一个持久化对象 -->
+        <id name="id"> <!-- 用id来对应主键标志,并指定主键生产策略 -->
+            <generator class="assigned"/>
+        </id>
+        <property name="name"/> <!-- 定义name属性 -->
+        <property name="password"/> <!-- 定义password属性 -->
+        <property name="age"/> <!-- 定义age属性 -->
+        <property name="sex"/> <!-- 定义sex属性 -->
+    </class>
+</hibernate-mapping>
