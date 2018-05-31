@@ -25,7 +25,7 @@
                     <div class="lg-label"><h4>用户登录</h4></div>
                     <div class="alert alert-error">
                         <i class="iconfont">&#xe62e;</i>
-                        <span><font color="red">${formBean.errors.error }</font></font></span>
+                        <span><font color="red">${formBean.errors.error }</font></span>
                     </div>
                     <form action="${pageContext.request.contextPath }/servlet/LoginServlet" method="post">
                         <div class="input-item">

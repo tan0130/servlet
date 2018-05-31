@@ -6,23 +6,15 @@
 
     <!-- 定义数据源 -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName">
-            <value>com.mysql.jdbc.Driver</value><!-- 设置驱动类 -->
-        </property>
-        <property name="url">
-            <value>jdbc:mysql://localhost:3306/spring</value><!-- 设置连接URL -->
-        </property>
-        <property name="username"><value>root</value>						<!-- 数据库用户名-->
-        </property>
-        <property name="password"><value>123456</value>					<!-- 数据库密码 -->
-        </property>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/spring?characterEncoding=UTF-8" />
+        <property name="username" value="root" />
+        <property name="password" value="123456" />
     </bean>
 
     <!-- 定义SessionFactory -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource">			<!--数据源-->
-            <ref bean="dataSource"/>
-        </property>
+        <property name="dataSource" ref="dataSource"/>			<!--数据源-->
         <property name="hibernateProperties">	<!--Hibernate配置属性-->
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -42,16 +34,12 @@
 
     <!-- 定义HibernateTemplate -->
     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
-        <property name="sessionFactory">
-            <ref bean="sessionFactory"/>		<!--注入SessionFactory实例对象-->
-        </property>
+        <property name="sessionFactory" ref="sessionFactory"/> <!--注入SessionFactory实例对象-->
     </bean>
 
     <bean id="hibernateTransactionManager"
           class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory">
-            <ref bean="sessionFactory"/>	<!--注入SessionFactory实例对象-->
-        </property>
+        <property name="sessionFactory" ref="sessionFactory"/> <!--注入SessionFactory实例对象-->
     </bean>
 
     <!-- 配置事务管理器 -->
