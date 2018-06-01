@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" type="text/css" href="../resources/css/easyui.css"/>
+<link rel="stylesheet" type="text/css" href="../../resources/css/easyui.css"/>
 <link rel="stylesheet" type="text/css" href="../../resources/css/icon.css">
 <link rel="stylesheet" type="text/css" href="../../resources/css/base.css">
 <link rel="stylesheet" type="text/css" href="../../resources/css/menu.css">

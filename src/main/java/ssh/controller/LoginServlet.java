@@ -17,16 +17,32 @@ import java.io.IOException;
 
 /**
  * create by tan on 2018/5/11
+ * 对登录界面的输入做校验
  **/
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
-        int id = Integer.parseInt(request.getParameter("id"));
-        String password = request.getParameter("password");
+        request.setCharacterEncoding("utf-8"); // 设置字符编码
+        String id1 = request.getParameter("id"); // 获取登录id
+        String password = request.getParameter("password"); // 获取登录密码
+        String code = request.getParameter("code"); // 获取输入的验证码
+        // String serverCode = request.getParameter("picCode");
+        String checkImg_server=(String) request.getSession().getAttribute("picCode"); // 获取保存在session的picCode
 
         LoginFormBean formBean = WebUtil.request2Bean(request, LoginFormBean.class);
+
+        // 对输入数据是否为空做校验
+        if (!formBean.loginValidate()) {
+            request.setAttribute("formBean", formBean);
+            request.getRequestDispatcher("/WEB-INF/login/login.jsp").forward(request, response);
+        } else if(!checkImg_server.equalsIgnoreCase(code)) {
+            request.setAttribute("formBean", formBean);
+            formBean.getErrors().put("error", "验证码不正确！");
+            request.getRequestDispatcher("/WEB-INF/login/login.jsp").forward(request, response);
+        }
+
         try {
+            int id = Integer.parseInt(id1);
             UserService userService = new UserServiceImpl();
             User user = userService.login(id, password);
             // 登录成功，将user对象保存到session中
@@ -34,7 +50,7 @@ public class LoginServlet extends HttpServlet {
             // 表单数据填充javabean
             BeanUtils.copyProperties(user, formBean);
 //			request.getRequestDispatcher("/pages/menu.jsp").forward(request, response);
-            request.getRequestDispatcher("/pages/admin.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/pages/admin.jsp").forward(request, response);
         } catch (UserException e) {
             if(e.getMessage().equals("用户不存在")) {
                 formBean.getErrors().put("error", "用户不存在！");
@@ -42,7 +58,7 @@ public class LoginServlet extends HttpServlet {
                 formBean.getErrors().put("error", "密码不正确！");
             }
             request.setAttribute("formBean", formBean);
-            request.getRequestDispatcher("/login/login.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/login/login.jsp").forward(request, response);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

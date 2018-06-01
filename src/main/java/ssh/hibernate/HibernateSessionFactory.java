@@ -10,7 +10,7 @@ import org.hibernate.cfg.Configuration;
  * 只支持映射文件方式的映射，不支持Annotation注释映射
  **/
 public class HibernateSessionFactory {
-    private static String CONFIG_FILE_LOCATION = "/hibernate.cfg.xml";//指定配置文件路径
+    private static String CONFIG_FILE_LOCATION = "hibernate/hibernate.cfg.xml";//指定配置文件路径
     private static final ThreadLocal<Session> threadLocal
             = new ThreadLocal<Session>();//定义ThreadLocal对象
     private  static Configuration configuration

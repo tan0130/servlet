@@ -13,18 +13,21 @@ public class LoginFormBean {
     private String password; // 用户登录密码
     private int age; // 用户年龄
     private String sex; // 用户性别
+    private String code; // 验证码
 
     private Map<String, String> errors = new HashMap<String, String>(); // 用于存储输入错误提示信息
 
     public boolean loginValidate() {
         boolean isOk = true;
-        if(id == 0) {
+        if (id == 0) {
             isOk = false;
             errors.put("error", "请输入用户id");
-        }
-        if(this.password == null || this.password.trim().equals("")) {
+        } else if (this.password == null || this.password.trim().equals("")) {
             isOk = false;
             errors.put("error", "请输入密码");
+        } else if (this.code == null || this.code.trim().equals("")) {
+            isOk = false;
+            errors.put("error", "请输入验证码");
         }
         return isOk;
     }
@@ -77,6 +80,14 @@ public class LoginFormBean {
         this.errors = errors;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     @Override
     public String toString() {
         return "LoginFormBean{" +
@@ -85,6 +96,7 @@ public class LoginFormBean {
                 ", password='" + password + '\'' +
                 ", age=" + age +
                 ", sex='" + sex + '\'' +
+                ", code='" + code + '\'' +
                 ", errors=" + errors +
                 '}';
     }

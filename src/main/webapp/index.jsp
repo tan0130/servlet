@@ -15,6 +15,6 @@
     <a href = "${pageContext.request.contextPath }/servlet/CookieServlet">跳转测试Cookie保存会话</a>
     <a href = "${pageContext.request.contextPath }/servlet/SessionServlet">跳转测试Session会话</a>
     <a href = "${pageContext.request.contextPath }/servlet/ApplicationServlet">跳转测试Application测试</a>
-
+    <a href = "servlet/ToServlet">登录界面</a>
 </body>
 </html>

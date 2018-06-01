@@ -1,11 +1,18 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ include file="WEB-INF/include/include.jsp" %>
+
 <%
     request.setAttribute("path", request.getContextPath());
 %>
 <html>
 <head>
     <title>员工信息管理系统</title>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/login.css">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/base.css">
+
+    <script type="text/javascript" src="../../resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../resources/js/jquery.easyui.min.js"></script>
 </head>
 <body>
 <div class="login-hd">
@@ -44,18 +51,19 @@
                             <label for="employee">员工</label>
                         </div> -->
 
-                        <!-- <div class="lg-check clearfix">
+                        <div class="lg-check clearfix">
                             <div class="input-item">
                                 <i class="iconfont">&#xe633;</i>
-                                <input type="text" placeholder="验证码">
+                                <input type="text" name="code" placeholder="验证码">
                             </div>
-                                <span class="check-code">XD34F</span>
-                        </div> -->
+                            <span class="check-code"><img src="${pageContext.request.contextPath }/servlet/ImgServlet"  id="checkImg" onclick="refresh()"></span>
+
+                        </div>
                         <!-- <div class="tips clearfix">
                             <label><input type="checkbox" checked="checked">记住用户名</label>
                             <!--  <a href="javascript:;" class="register">立即注册</a>
                             <a href="javascript:;" class="forget-pwd">忘记密码？</a>-->
-                        <div class="enter">
+                        <div class="enter" style="margin-top:-15px">
                             <!--  <a href="javascript:;" class="user" onClick="javascript:window.location=''">登录</a>-->
                             <input class= "login" type="submit" value="登录" />
                         </div>
@@ -73,7 +81,7 @@
                 <a href="javascript:;">服务条款</a>
                 <a href="javascript:;">联系方式</a>
             </div>
-            <div class="address">地址：深圳市坪山新区比亚迪路3009&nbsp;邮编：518118&nbsp;&nbsp;Copyright&nbsp;©&nbsp;2017&nbsp;-&nbsp;2020&nbsp;版权所有</div>
+            <div class="address">地址：深圳市 &nbsp;&nbsp;Copyright&nbsp;©&nbsp;2017&nbsp;-&nbsp;2020&nbsp;版权所有</div>
             <div class="other-info">建议使用IE8及以上版本浏览器、Firefox或Chrome&nbsp;</div>
         </div>
     </div>
@@ -81,6 +89,8 @@
 </body>
 
 <script type="text/javascript">
-
+    function refresh() {
+        document.getElementById("checkImg").src = "${pageContext.request.contextPath }/servlet/ImgServlet?" + Math.random();
+    }
 </script>
 </html>

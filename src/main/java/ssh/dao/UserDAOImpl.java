@@ -2,11 +2,13 @@ package ssh.dao;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.transaction.annotation.Transactional;
 import ssh.entity.User;
 import ssh.hibernate.HibernateSessionFactory;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -15,6 +17,7 @@ import java.util.List;
  **/
 @Transactional
 public class UserDAOImpl implements UserDAO{
+
     public User queryUser(int id) {
         Session session = HibernateSessionFactory.getSession();
         String hql = "from User u where u.id = ?";
