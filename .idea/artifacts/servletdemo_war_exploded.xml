@@ -1,16 +1,18 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="springdemo:war exploded">
-    <output-path>$PROJECT_DIR$/../servletdemo/target/servletdemo-1.0-SNAPSHOT</output-path>
+  <artifact type="exploded-war" name="servletdemo:war exploded">
+    <output-path>$PROJECT_DIR$/target/servletdemo-1.0-SNAPSHOT</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="springdemo" />
+          <element id="module-output" name="servletdemo" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: javax.annotation:javax.annotation-api:1.2" />
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.3" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.2" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.1" />
           <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.3.14.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.14.RELEASE" />
@@ -35,9 +37,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/../servletdemo/target/servletdemo-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/servletdemo-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="springdemo/web/Web" />
+      <element id="javaee-facet-resources" facet="servletdemo/web/Web" />
     </root>
   </artifact>
 </component>

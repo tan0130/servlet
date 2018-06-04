@@ -9,11 +9,20 @@
 <html>
 <head>
     <title>测试文件上传</title>
+    <script type="text/javascript" src="../../resources/js/jquery.min.js"></script>
 </head>
 <body>
-    <form action="" method="post">
-        文件：<input type="text" name="upload"/>
+    <form action="${pageContext.request.contextPath }/servlet/UploadServlet" enctype="multipart/form-data"  method="post">
+        上传用户：<input type="text" id="file" name="name"/><br/>
+        上传文件：<input type="file" name="file">
         <input type="submit" value="上传"/>
     </form>
+
+<script type="text/javascript">
+
+    // 触发文件选择的click事件
+    $("#file").trigger("click");
+
+</script>
 </body>
 </html>
