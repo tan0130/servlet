@@ -57,6 +57,12 @@
   </build>
 
   <dependencies>
+    <!-- jstl标签类 -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
     <!-- javax servlet -->
     <dependency>
       <groupId>javax.servlet</groupId>

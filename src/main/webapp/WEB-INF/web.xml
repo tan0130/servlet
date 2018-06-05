@@ -110,6 +110,7 @@
     <url-pattern>/servlet/ToUploadServlet</url-pattern>
   </servlet-mapping>
 
+  <!-- 实现文件上传 -->
   <servlet>
     <servlet-name>UploadServlet</servlet-name>
     <servlet-class>ssh.controller.UploadServlet</servlet-class>
@@ -119,6 +120,28 @@
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/servlet/UploadServlet</url-pattern>
   </servlet-mapping>
+
+  <!-- 列出文件下载目录 -->
+  <servlet>
+    <servlet-name>FileListServlet</servlet-name>
+    <servlet-class>ssh.controller.FileListServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>FileListServlet</servlet-name>
+    <url-pattern>/servlet/FileListServlet</url-pattern>
+  </servlet-mapping>
+
+    <!-- 实现文件下载 -->
+    <servlet>
+        <servlet-name>DownloadServlet</servlet-name>
+        <servlet-class>ssh.controller.DownloadServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DownloadServlet</servlet-name>
+        <url-pattern>/servlet/DownloadServlet</url-pattern>
+    </servlet-mapping>
 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

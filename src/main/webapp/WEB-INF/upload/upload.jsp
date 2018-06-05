@@ -14,8 +14,8 @@
 <body>
     <form action="${pageContext.request.contextPath }/servlet/UploadServlet" enctype="multipart/form-data"  method="post">
         上传用户：<input type="text" id="file" name="name"/><br/>
-        上传文件：<input type="file" name="file">
-        <input type="submit" value="上传"/>
+        上传文件：<input type="file" name="file"><br/>
+        <input type="submit" value="上传"/>文件上传结果：${message}
     </form>
 
 <script type="text/javascript">
